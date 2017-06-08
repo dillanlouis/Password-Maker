@@ -33,5 +33,9 @@ short twentythree_combo(const string &, long long &, const char *, char *);
 short twentyfour_combo(const string &, long long &, const char *, char *);
 short twentyfive_combo(const string &, long long &, const char *, char *);
 short twentysix_combo(const string &, long long &, const char *, char *);
+short twentyseven_combo(const string &, long long &, const char *, char *);
+short twentyeight_combo(const string &, long long &, const char *, char *);
+short twentynine_combo(const string &, long long &, const char *, char *);
+short thirty_combo(const string &, long long &, const char *, char *);
 
 #endif

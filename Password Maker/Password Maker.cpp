@@ -137,40 +137,54 @@ void create_progress_file(string & last_password2){
 
 //This function starts the first set of 8 length passwords
 short eight_combo(const string & combo8, long long & count8, const char * password_file_name8, char * last_combo8){
-	if(last_combo8 == nullptr){
-		fstream pasword_list8;
-		pasword_list8.open(password_file_name8, ios::out);
-		for(const char a: combo8){
-			for(const char b: combo8){
-				for(const char c: combo8){
-					for(const char d: combo8){
-						for(const char e: combo8){
-							for(const char f: combo8)
-								for(const char g: combo8){
-									for(const char h: combo8){
-										pasword_list8 << a << b << c << d << e << f << g << h << '\n';
-										--count8;
-										if(count8 == 0){
-											pasword_list8.close();
-											string last_password8{};
-											last_password8 = last_password8 + a + b + c + d + e + f + g + h;
-											create_progress_file(last_password8);
-											return 0;
+	fstream password_list8;
+	string last_password8{};
+	bool first_round8{ false };
+	if (last_combo8 == nullptr) first_round8 = true;
+	password_list8.open(password_file_name8, ios::out);
+	for (const char a0 : combo8) {
+		if (first_round8 || a0 == last_combo8[0]) {
+			for (const char a1 : combo8) {
+				if (first_round8 || a1 == last_combo8[1]) {
+					for (const char a2 : combo8) {
+						if (first_round8 || a2 == last_combo8[2]) {
+							for (const char a3 : combo8) {
+								if (first_round8 || a3 == last_combo8[3]) {
+									for (const char a4 : combo8) {
+										if (first_round8 || a4 == last_combo8[4]) {
+											for (const char a5 : combo8) {
+												if (first_round8 || a5 == last_combo8[5]) {
+													for (const char a6 : combo8) {
+														if (first_round8 || a6 == last_combo8[6]) {
+															for (const char a7 : combo8) {
+																if (first_round8 || a7 == last_combo8[7]) {
+																	first_round8 = 1;
+																	password_list8 << a0 << a1 << a2 << a3 << a4 << a5 << a6 << a7 << '\n';
+																	--count8;
+																	if (count8 == 0) {
+																		password_list8.close();
+																		last_password8 = last_password8 + a0 + a1 + a2 + a3 + a4 + a5 + a6 + a7;
+																		create_progress_file(last_password8);
+																		return 0;
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
 										}
 									}
 								}
+							}
 						}
 					}
 				}
 			}
 		}
-		pasword_list8.close();
-		nine_combo(combo8, count8, password_file_name8, nullptr);
-	}else{
-		for(short a = 0; a < 8; ++a){
-			cout << last_combo8[a] << '\n';
-		}
 	}
+	password_list8.close();
+	nine_combo(combo8, count8, password_file_name8, nullptr);
 	return 0;
 }
 
@@ -1224,8 +1238,24 @@ short twentysix_combo(const string & combo26, long long & count26, const char * 
 	return 0;
 }
 
+short twentyseven_combo(const string & combo27, long long & count27, const char * password_file_name, char * last_combo27){
+	return 0;
+}
+
+short twentyeight_combo(const string & combo28, long long & count28, const char * password_file_name28, char * last_combo28){
+	return 0;
+}
+
+short twentynine_combo(const string & combo29, long long & count29, const char * password_file_name29, char * last_combo29){
+	return 0;
+}
+
+short thirty_combo(const string & combo30, long long & count30, const char * password_file_name30, char * last_combo30){
+	return 0;
+}
+
 int main(){
-	const string wifi_pass_combo{"1"};
+	const string wifi_pass_combo{"01"};
 	long long pass_count{};
 	unsigned long long length{};
 	fstream progress;
@@ -1242,7 +1272,7 @@ int main(){
 		progress >> last_password;
 		progress.close();
 		length = last_password.size();
-
+		if(length < 8 || length > 64) eight_combo(wifi_pass_combo, pass_count, password_file_name, nullptr);
 		char * last_combo = new char[length];
 
 		for(unsigned short a = 0; a < length; ++a){
