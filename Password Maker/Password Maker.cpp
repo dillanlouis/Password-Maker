@@ -158,7 +158,10 @@ short eight_combo(const string & combo8, long long & count8, const char * passwo
 														if (first_round8 || a6 == last_combo8[6]) {
 															for (const char a7 : combo8) {
 																if (first_round8 || a7 == last_combo8[7]) {
-																	first_round8 = 1;
+																	if (!first_round8) {
+																		first_round8 = true;
+																		continue;
+																	}
 																	password_list8 << a0 << a1 << a2 << a3 << a4 << a5 << a6 << a7 << '\n';
 																	--count8;
 																	if (count8 == 0) {
@@ -184,8 +187,7 @@ short eight_combo(const string & combo8, long long & count8, const char * passwo
 		}
 	}
 	password_list8.close();
-	nine_combo(combo8, count8, password_file_name8, nullptr);
-	return 0;
+	return nine_combo(combo8, count8, password_file_name8, nullptr);
 }
 
 short nine_combo(const string & combo9, long long & count9, const char * password_file_name9, char * last_combo9){
@@ -217,7 +219,10 @@ short nine_combo(const string & combo9, long long & count9, const char * passwor
 																if (first_round9 || a7 == last_combo9[7]) {
 																	for (const char a8 : combo9) {
 																		if (first_round9 || a8 == last_combo9[8]) {
-																			first_round9 = 1;
+																			if (!first_round9) {
+																				first_round9 = true;
+																				continue;
+																			}
 																			password_list9 << a0 << a1 << a2 << a3 << a4 << a5 << a6 << a7 << a8 << '\n';
 																			--count9;
 																			if (count9 == 0) {
@@ -245,8 +250,7 @@ short nine_combo(const string & combo9, long long & count9, const char * passwor
 		}
 	}
 	password_list9.close();
-	ten_combo(combo9, count9, password_file_name9, nullptr);
-	return 0;
+	return ten_combo(combo9, count9, password_file_name9, nullptr);
 }
 
 short ten_combo(const string & combo10, long long & count10, const char * password_file_name10, char * last_combo10){
@@ -280,7 +284,10 @@ short ten_combo(const string & combo10, long long & count10, const char * passwo
 																		if (first_round10 || a8 == last_combo10[8]) {
 																			for (const char a9 : combo10) {
 																				if (first_round10 || a9 == last_combo10[9]) {
-																					first_round10 = 1;
+																					if (!first_round10) {
+																						first_round10 = true;
+																						continue;
+																					}
 																					password_list10 << a0 << a1 << a2 << a3 << a4 << a5 << a6 << a7 << a8 << a9 << '\n';
 																					--count10;
 																					if (count10 == 0) {
@@ -310,8 +317,7 @@ short ten_combo(const string & combo10, long long & count10, const char * passwo
 		}
 	}
 	password_list10.close();
-	eleven_combo(combo10, count10, password_file_name10, nullptr);
-	return 0;
+	return eleven_combo(combo10, count10, password_file_name10, nullptr);
 }
 
 short eleven_combo(const string & combo11, long long & count11, const char * password_file_name11, char * last_combo11){
@@ -347,7 +353,10 @@ short eleven_combo(const string & combo11, long long & count11, const char * pas
 																				if (first_round11 || a9 == last_combo11[9]) {
 																					for (const char a10 : combo11) {
 																						if (first_round11 || a10 == last_combo11[10]) {
-																							first_round11 = 1;
+																							if (!first_round11) {
+																								first_round11 = true;
+																								continue;
+																							}
 																							password_list11 << a0 << a1 << a2 << a3 << a4 << a5 << a6 << a7 << a8 << a9 << a10 << '\n';
 																							--count11;
 																							if (count11 == 0) {
@@ -379,8 +388,7 @@ short eleven_combo(const string & combo11, long long & count11, const char * pas
 		}
 	}
 	password_list11.close();
-	twelve_combo(combo11, count11, password_file_name11, nullptr);
-	return 0;
+	return twelve_combo(combo11, count11, password_file_name11, nullptr);
 }
 
 short twelve_combo(const string & combo12, long long & count12, const char * password_file_name12, char * last_combo12){
@@ -418,7 +426,10 @@ short twelve_combo(const string & combo12, long long & count12, const char * pas
 																						if (first_round12 || a10 == last_combo12[10]) {
 																							for (const char a11 : combo12) {
 																								if (first_round12 || a11 == last_combo12[11]) {
-																									first_round12 = 1;
+																									if (!first_round12) {
+																										first_round12 = true;
+																										continue;
+																									}
 																									password_list12 << a0 << a1 << a2 << a3 << a4 << a5 << a6 << a7 << a8 << a9 << a10 << a11 << '\n';
 																									--count12;
 																									if (count12 == 0) {
@@ -452,8 +463,7 @@ short twelve_combo(const string & combo12, long long & count12, const char * pas
 		}
 	}
 	password_list12.close();
-	thirteen_combo(combo12, count12, password_file_name12, nullptr);
-	return 0;
+	return thirteen_combo(combo12, count12, password_file_name12, nullptr);
 }
 
 short thirteen_combo(const string & combo13, long long & count13, const char * password_file_name13, char * last_combo13){
@@ -493,7 +503,10 @@ short thirteen_combo(const string & combo13, long long & count13, const char * p
 																								if (first_round13 || a11 == last_combo13[11]) {
 																									for (const char a12 : combo13) {
 																										if (first_round13 || a12 == last_combo13[12]) {
-																											first_round13 = 1;
+																											if (!first_round13) {
+																												first_round13 = true;
+																												continue;
+																											}
 																											password_list13 << a0 << a1 << a2 << a3 << a4 << a5 << a6 << a7 << a8 << a9 << a10 << a11 << a12 << '\n';
 																											--count13;
 																											if (count13 == 0) {
@@ -529,89 +542,71 @@ short thirteen_combo(const string & combo13, long long & count13, const char * p
 		}
 	}
 	password_list13.close();
-	fourteen_combo(combo13, count13, password_file_name13, nullptr);
-	return 0;
+	return fourteen_combo(combo13, count13, password_file_name13, nullptr);
 }
 
 short fourteen_combo(const string & combo14, long long & count14, const char * password_file_name14, char * last_combo14){
 	fstream password_list14;
 	string last_password14{};
 	bool first_round14{ false };
-	if(last_combo14 == nullptr){
+	if (last_combo14 == nullptr) {
+		first_round14 = true;
 		password_list14.open(password_file_name14, ios::app);
-		for(const char a: combo14){
-			for(const char b: combo14){
-				for(const char c: combo14){
-					for(const char d: combo14){
-						for(const char e: combo14){
-							for(const char f: combo14){
-								for(const char g: combo14){
-									for(const char h: combo14){
-										for(const char i: combo14){
-											for(const char j: combo14){
-												for(const char k: combo14){
-													for(const char l: combo14){
-														for(const char m: combo14){
-															for(const char n: combo14){
-																password_list14 << a << b << c << d << e << f << g << h << i << j << k << l << m << n << '\n';
-																--count14;
-																if(count14 == 0){
-																	password_list14.close();
-																	last_password14 = last_password14 + a + b + c + d + e + f + g + h + i + j + k + l + m + n;
-																	create_progress_file(last_password14);
-																	return 0;
-																}
-															}
-														}
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-		password_list14.close();
-		fifteen_combo(combo14, count14, password_file_name14, nullptr);
-	}else{
-		for(short a = 0; a < 14; ++a){
-			cout << last_combo14[a] << '\n';
-		}
 	}
-	return 0;
-}
-
-short fifteen_combo(const string & combo15, long long & count15, const char * password_file_name15, char * last_combo15){
-	fstream password_list15;
-	string last_password15{};
-	if(last_combo15 == nullptr){
-		password_list15.open(password_file_name15, ios::app);
-		for(const char a: combo15){
-			for(const char b: combo15){
-				for(const char c: combo15){
-					for(const char d: combo15){
-						for(const char e: combo15){
-							for(const char f: combo15){
-								for(const char g: combo15){
-									for(const char h: combo15){
-										for(const char i: combo15){
-											for(const char j: combo15){
-												for(const char k: combo15){
-													for(const char l: combo15){
-														for(const char m: combo15){
-															for(const char n: combo15){
-																for(const char o: combo15){
-																	password_list15 << a << b << c << d << e << f << g << h << i << j << k << l << m << n << o << '\n';
-																	--count15;
-																	if(count15 == 0){
-																		password_list15.close();
-																		last_password15 = last_password15 + a + b + c + d + e + f + g + h + i + j + k + l + m + n + o;
-																		create_progress_file(last_password15);
-																		return 0;
+	else {
+		password_list14.open(password_file_name14, ios::out);
+	}
+	for (const char a0 : combo14) {
+		if (first_round14 || a0 == last_combo14[0]) {
+			for (const char a1 : combo14) {
+				if (first_round14 || a1 == last_combo14[1]) {
+					for (const char a2 : combo14) {
+						if (first_round14 || a2 == last_combo14[2]) {
+							for (const char a3 : combo14) {
+								if (first_round14 || a3 == last_combo14[3]) {
+									for (const char a4 : combo14) {
+										if (first_round14 || a4 == last_combo14[4]) {
+											for (const char a5 : combo14) {
+												if (first_round14 || a5 == last_combo14[5]) {
+													for (const char a6 : combo14) {
+														if (first_round14 || a6 == last_combo14[6]) {
+															for (const char a7 : combo14) {
+																if (first_round14 || a7 == last_combo14[7]) {
+																	for (const char a8 : combo14) {
+																		if (first_round14 || a8 == last_combo14[8]) {
+																			for (const char a9 : combo14) {
+																				if (first_round14 || a9 == last_combo14[9]) {
+																					for (const char a10 : combo14) {
+																						if (first_round14 || a10 == last_combo14[10]) {
+																							for (const char a11 : combo14) {
+																								if (first_round14 || a11 == last_combo14[11]) {
+																									for (const char a12 : combo14) {
+																										if (first_round14 || a12 == last_combo14[12]) {
+																											for (const char a13 : combo14) {
+																												if (first_round14 || a13 == last_combo14[13]) {
+																													if (!first_round14) {
+																														first_round14 = true;
+																														continue;
+																													}
+																													password_list14 << a0 << a1 << a2 << a3 << a4 << a5 << a6 << a7 << a8 << a9 << a10 << a11 << a12 << a13 << '\n';
+																													--count14;
+																													if (count14 == 0) {
+																														password_list14.close();
+																														last_password14 = last_password14 + a0 + a1 + a2 + a3 + a4 + a5 + a6 + a7 + a8 + a9 + a10 + a11 + a12 + a13;
+																														create_progress_file(last_password14);
+																														return 0;
+																													}
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
 																	}
 																}
 															}
@@ -628,14 +623,96 @@ short fifteen_combo(const string & combo15, long long & count15, const char * pa
 				}
 			}
 		}
-		password_list15.close();
-		sixteen_combo(combo15, count15, password_file_name15, nullptr);
-	}else{
-		for(short a = 0; a < 15; ++a){
-			cout << last_combo15[a] << '\n';
+	}
+	password_list14.close();
+	return fifteen_combo(combo14, count14, password_file_name14, nullptr);
+}
+
+short fifteen_combo(const string & combo15, long long & count15, const char * password_file_name15, char * last_combo15){
+	fstream password_list15;
+	string last_password15{};
+	bool first_round15{ false };
+	if (last_combo15 == nullptr) {
+		first_round15 = true;
+		password_list15.open(password_file_name15, ios::app);
+	}
+	else {
+		password_list15.open(password_file_name15, ios::out);
+	}
+	for (const char a0 : combo15) {
+		if (first_round15 || a0 == last_combo15[0]) {
+			for (const char a1 : combo15) {
+				if (first_round15 || a1 == last_combo15[1]) {
+					for (const char a2 : combo15) {
+						if (first_round15 || a2 == last_combo15[2]) {
+							for (const char a3 : combo15) {
+								if (first_round15 || a3 == last_combo15[3]) {
+									for (const char a4 : combo15) {
+										if (first_round15 || a4 == last_combo15[4]) {
+											for (const char a5 : combo15) {
+												if (first_round15 || a5 == last_combo15[5]) {
+													for (const char a6 : combo15) {
+														if (first_round15 || a6 == last_combo15[6]) {
+															for (const char a7 : combo15) {
+																if (first_round15 || a7 == last_combo15[7]) {
+																	for (const char a8 : combo15) {
+																		if (first_round15 || a8 == last_combo15[8]) {
+																			for (const char a9 : combo15) {
+																				if (first_round15 || a9 == last_combo15[9]) {
+																					for (const char a10 : combo15) {
+																						if (first_round15 || a10 == last_combo15[10]) {
+																							for (const char a11 : combo15) {
+																								if (first_round15 || a11 == last_combo15[11]) {
+																									for (const char a12 : combo15) {
+																										if (first_round15 || a12 == last_combo15[12]) {
+																											for (const char a13 : combo15) {
+																												if (first_round15 || a13 == last_combo15[13]) {
+																													for (const char a14 : combo15) {
+																														if (first_round15 || a14 == last_combo15[14]) {
+																															if (!first_round15) {
+																																first_round15 = true;
+																																continue;
+																															}
+																															password_list15 << a0 << a1 << a2 << a3 << a4 << a5 << a6 << a7 << a8 << a9 << a10 << a11 << a12 << a13 << a14 << '\n';
+																															--count15;
+																															if (count15 == 0) {
+																																password_list15.close();
+																																last_password15 = last_password15 + a0 + a1 + a2 + a3 + a4 + a5 + a6 + a7 + a8 + a9 + a10 + a11 + a12 + a13 + a14;
+																																create_progress_file(last_password15);
+																																return 0;
+																															}
+																														}
+																													}
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
 		}
 	}
-	return 0;
+	password_list15.close();
+	return sixteen_combo(combo15, count15, password_file_name15, nullptr);
 }
 
 short sixteen_combo(const string & combo16, long long & count16, const char * password_file_name16, char * last_combo16){
@@ -1374,101 +1451,3 @@ short thirty_combo(const string & combo30, long long & count30, const char * pas
 	return 0;
 }
 
-int main(){
-	const string wifi_pass_combo{"01"};
-	long long pass_count{};
-	unsigned long long length{};
-	fstream progress;
-	string last_password{};
-	const char * password_file_name = "password.txt";
-
-	pass_count = get_user_input();
-	
-	if(pass_count == 0) return 0;
-	
-	progress.open("progress.dat", ios::in);
-	
-	if(progress.is_open()){
-		progress >> last_password;
-		progress.close();
-		length = last_password.size();
-		if(length < 8 || length > 64) eight_combo(wifi_pass_combo, pass_count, password_file_name, nullptr);
-		char * last_combo = new char[length];
-
-		for(unsigned short a = 0; a < length; ++a){
-			last_combo[a] = last_password[a];
-		}
-
-		last_password.clear();
-
-		switch(length){
-			case 8:
-				eight_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-				break;
-			case 9:
-				nine_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-				break;
-			case 10:
-				ten_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-				break;
-			case 11:
-				eleven_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-				break;
-			case 12:
-				twelve_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-				break;
-			case 13:
-				thirteen_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-				break;
-			case 14:
-				fourteen_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-				break;
-			case 15:
-				fifteen_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-				break;
-			case 16:
-				sixteen_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-				break;
-			case 17:
-				seventeen_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-				break;
-			case 18:
-				eightteen_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-				break;
-			case 19:
-				nineteen_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-				break;
-			case 20:
-				twenty_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-				break;
-			case 21:
-				twentyone_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-				break;
-			case 22:
-				twentytwo_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-				break;
-			case 23:
-				twentythree_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-				break;
-			case 24:
-				twentyfour_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-				break;
-			case 25:
-				twentyfive_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-				break;
-			case 26:
-				twentysix_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-				break;
-			default:
-				break;
-		}
-
-		delete[] last_combo;
-	}else{
-		progress.close();
-		eight_combo(wifi_pass_combo, pass_count, password_file_name, nullptr);
-	}
-
-	system("pause");
-	return 0;
-}
