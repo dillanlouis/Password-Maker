@@ -7,7 +7,7 @@
 
 
 int main() {
-	const string wifi_pass_combo{ "01" };
+	const string wifi_pass_combo{ "abcdefghijklmnopqrstuvwxyz" };
 	long long pass_count{};
 	unsigned long long length{};
 	fstream progress;
