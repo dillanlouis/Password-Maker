@@ -7,7 +7,7 @@
 
 
 int main() {
-	const string wifi_pass_combo{ "abcdefghijklmnopqrstuvwxyz" };
+	const string wifi_pass_combo{ "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" };
 	long long pass_count{};
 	unsigned long long length{};
 	fstream progress;
@@ -19,13 +19,12 @@ int main() {
 
 	if (pass_count == 0) return 0;
 
-	progress.open("progress.dat", ios::in);
+	progress.open(progress_file_name, ios::in);
 
 	if (progress.is_open()) {
 		progress >> last_password;
 		progress.close();
 		length = last_password.size();
-		if (length < 8 || length > 64) eight_combo(wifi_pass_combo, pass_count, password_file_name, nullptr);
 		char * last_combo = new char[length];
 
 		for (unsigned short a = 0; a < length; ++a) {
@@ -36,63 +35,67 @@ int main() {
 
 		switch (length) {
 		case 8:
-			eight_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
+			last_password = eight_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
 			break;
 		case 9:
-			nine_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
+			last_password = nine_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
 			break;
 		case 10:
-			ten_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
+			last_password = ten_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
 			break;
 		case 11:
-			eleven_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
+			last_password = eleven_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
 			break;
 		case 12:
-			twelve_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
+			last_password = twelve_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
 			break;
 		case 13:
-			thirteen_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
+			last_password = thirteen_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
 			break;
 		case 14:
-			fourteen_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
+			last_password = fourteen_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
 			break;
 		case 15:
-			fifteen_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
+			last_password = fifteen_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
 			break;
 		case 16:
-			sixteen_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
+			last_password = sixteen_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
 			break;
 		case 17:
-			seventeen_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
+			last_password = seventeen_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
 			break;
 		case 18:
-			eightteen_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
+			last_password = eightteen_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
 			break;
 		case 19:
-			nineteen_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
+			last_password = nineteen_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
 			break;
 		case 20:
-			twenty_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
+			last_password = twenty_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
 			break;
 		case 21:
-			twentyone_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
+			last_password = twentyone_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
 			break;
 		case 22:
-			twentytwo_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
+			last_password = twentytwo_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
 			break;
 		case 23:
-			twentythree_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
+			last_password = twentythree_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
 			break;
 		case 24:
-			twentyfour_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
+			last_password = twentyfour_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
 			break;
 		case 25:
-			twentyfive_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
+			last_password = twentyfive_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
 			break;
 		case 26:
-			twentysix_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
+			last_password = twentysix_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
+			break;
+		case 27:
+			last_password = twentyseven_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
 			break;
 		default:
+			last_password = eight_combo(wifi_pass_combo, pass_count, password_file_name, nullptr);
 			break;
 		}
 
@@ -100,9 +103,9 @@ int main() {
 	}
 	else {
 		progress.close();
-		eight_combo(wifi_pass_combo, pass_count, password_file_name, nullptr);
+		last_password = eight_combo(wifi_pass_combo, pass_count, password_file_name, nullptr);
 	}
-
+	create_progress_file(last_password, progress_file_name);
 	system("pause");
 	return 0;
 }
