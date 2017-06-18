@@ -97,6 +97,9 @@ int main() {
 		case 28:
 			last_password = twentyeight_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
 			break;
+		case 29:
+			last_password = twentynine_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
+			break;
 		default:
 			last_password = eight_combo(wifi_pass_combo, pass_count, password_file_name, nullptr);
 			break;

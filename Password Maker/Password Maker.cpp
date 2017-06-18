@@ -2190,6 +2190,144 @@ string twentyeight_combo(const string & combo28, long long & count28, const char
 }
 
 string twentynine_combo(const string & combo29, long long & count29, const char * password_file_name29, char * last_combo29){
+	fstream password_list29;
+	string last_password29{};
+	bool first_round29{ false };
+	if (last_combo29 == nullptr) {
+		first_round29 = true;
+		password_list29.open(password_file_name29, ios::app);
+	}
+	else {
+		password_list29.open(password_file_name29, ios::out);
+	}
+	for (const char a0 : combo29) {
+		if (first_round29 || a0 == last_combo29[0]) {
+			for (const char a1 : combo29) {
+				if (first_round29 || a1 == last_combo29[1]) {
+					for (const char a2 : combo29) {
+						if (first_round29 || a2 == last_combo29[2]) {
+							for (const char a3 : combo29) {
+								if (first_round29 || a3 == last_combo29[3]) {
+									for (const char a4 : combo29) {
+										if (first_round29 || a4 == last_combo29[4]) {
+											for (const char a5 : combo29) {
+												if (first_round29 || a5 == last_combo29[5]) {
+													for (const char a6 : combo29) {
+														if (first_round29 || a6 == last_combo29[6]) {
+															for (const char a7 : combo29) {
+																if (first_round29 || a7 == last_combo29[7]) {
+																	for (const char a8 : combo29) {
+																		if (first_round29 || a8 == last_combo29[8]) {
+																			for (const char a9 : combo29) {
+																				if (first_round29 || a9 == last_combo29[9]) {
+																					for (const char a10 : combo29) {
+																						if (first_round29 || a10 == last_combo29[10]) {
+																							for (const char a11 : combo29) {
+																								if (first_round29 || a11 == last_combo29[11]) {
+																									for (const char a12 : combo29) {
+																										if (first_round29 || a12 == last_combo29[12]) {
+																											for (const char a13 : combo29) {
+																												if (first_round29 || a13 == last_combo29[13]) {
+																													for (const char a14 : combo29) {
+																														if (first_round29 || a14 == last_combo29[14]) {
+																															for (const char a15 : combo29) {
+																																if (first_round29 || a15 == last_combo29[15]) {
+																																	for (const char a16 : combo29) {
+																																		if (first_round29 || a16 == last_combo29[16]) {
+																																			for (const char a17 : combo29) {
+																																				if (first_round29 || a17 == last_combo29[17]) {
+																																					for (const char a18 : combo29) {
+																																						if (first_round29 || a18 == last_combo29[18]) {
+																																							for (const char a19 : combo29) {
+																																								if (first_round29 || a19 == last_combo29[19]) {
+																																									for (const char a20 : combo29) {
+																																										if (first_round29 || a20 == last_combo29[20]) {
+																																											for (const char a21 : combo29) {
+																																												if (first_round29 || a21 == last_combo29[21]) {
+																																													for (const char a22 : combo29) {
+																																														if (first_round29 || a22 == last_combo29[22]) {
+																																															for (const char a23 : combo29) {
+																																																if (first_round29 || a23 == last_combo29[23]) {
+																																																	for (const char a24 : combo29) {
+																																																		if (first_round29 || a24 == last_combo29[24]) {
+																																																			for (const char a25 : combo29) {
+																																																				if (first_round29 || a25 == last_combo29[25]) {
+																																																					for (const char a26 : combo29) {
+																																																						if (first_round29 || a26 == last_combo29[26]) {
+																																																							for (const char a27 : combo29) {
+																																																								if (first_round29 || a27 == last_combo29[27]) {
+																																																									for (const char a28 : combo29) {
+																																																										if (first_round29 || a28 == last_combo29[28]) {
+																																																											if (!first_round29) {
+																																																												first_round29 = true;
+																																																												continue;
+																																																											}
+																																																											password_list29 << a0 << a1 << a2 << a3 << a4 << a5 << a6 << a7 << a8 << a9 << a10 << a11 << a12 << a13 << a14 << a15 << a16 << a17 << a18 << a19 << a20 << a21 << a22 << a23 << a24 << a25 << a26 << a27 << a28 << '\n';
+																																																											--count29;
+																																																											if (count29 == 0) {
+																																																												password_list29.close();
+																																																												last_password29 = last_password29 + a0 + a1 + a2 + a3 + a4 + a5 + a6 + a7 + a8 + a9 + a10 + a11 + a12 + a13 + a14 + a15 + a16 + a17 + a18 + a19 + a20 + a21 + a22 + a23 + a24 + a25 + a26 + a27 + a28;
+																																																												return last_password29;
+																																																											}
+																																																										}
+																																																									}
+																																																								}
+																																																							}
+																																																						}
+																																																					}
+																																																				}
+																																																			}
+																																																		}
+																																																	}
+																																																}
+																																															}
+																																														}
+																																													}
+																																												}
+																																											}
+																																										}
+																																									}
+																																								}
+																																							}
+																																						}
+																																					}
+																																				}
+																																			}
+																																		}
+																																	}
+																																}
+																															}
+																														}
+																													}
+																												}
+																											}
+																										}
+																									}
+																								}
+																							}
+																						}
+																					}
+																				}
+																			}
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	password_list29.close();
 	return thirty_combo(combo29, count29, password_file_name29, nullptr);
 }
 
