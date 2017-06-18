@@ -37,5 +37,6 @@ string twentyseven_combo(const string &, long long &, const char *, char *);
 string twentyeight_combo(const string &, long long &, const char *, char *);
 string twentynine_combo(const string &, long long &, const char *, char *);
 string thirty_combo(const string &, long long &, const char *, char *);
+string thirtyone_combo(const string &, long long &, const char *, char *);
 
 #endif
