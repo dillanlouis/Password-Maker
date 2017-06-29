@@ -7,9 +7,9 @@
 
 
 int main() {
-	const string wifi_pass_combo{ "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" };
+	const string wifi_pass_combo{ "01" };
 	long long pass_count{};
-	unsigned long long length{};
+	short length{};
 	fstream progress;
 	string last_password{};
 	const char * password_file_name = "password.txt";
@@ -24,109 +24,38 @@ int main() {
 	if (progress.is_open()) {
 		progress >> last_password;
 		progress.close();
-		length = last_password.size();
-		char * last_combo = new char[length];
+		length = (short)last_password.size();
 
-		for (unsigned short a = 0; a < length; ++a) {
-			last_combo[a] = last_password[a];
+		if (last_password.size() > 64 || last_password.size() < 8) {
+			last_password = write_password_list(wifi_pass_combo, pass_count, password_file_name, nullptr, 8);
+			goto target;
 		}
 
-		last_password.clear();
-
-		switch (length) {
-		case 8:
-			last_password = eight_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-			break;
-		case 9:
-			last_password = nine_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-			break;
-		case 10:
-			last_password = ten_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-			break;
-		case 11:
-			last_password = eleven_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-			break;
-		case 12:
-			last_password = twelve_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-			break;
-		case 13:
-			last_password = thirteen_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-			break;
-		case 14:
-			last_password = fourteen_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-			break;
-		case 15:
-			last_password = fifteen_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-			break;
-		case 16:
-			last_password = sixteen_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-			break;
-		case 17:
-			last_password = seventeen_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-			break;
-		case 18:
-			last_password = eightteen_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-			break;
-		case 19:
-			last_password = nineteen_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-			break;
-		case 20:
-			last_password = twenty_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-			break;
-		case 21:
-			last_password = twentyone_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-			break;
-		case 22:
-			last_password = twentytwo_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-			break;
-		case 23:
-			last_password = twentythree_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-			break;
-		case 24:
-			last_password = twentyfour_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-			break;
-		case 25:
-			last_password = twentyfive_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-			break;
-		case 26:
-			last_password = twentysix_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-			break;
-		case 27:
-			last_password = twentyseven_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-			break;
-		case 28:
-			last_password = twentyeight_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-			break;
-		case 29:
-			last_password = twentynine_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-			break;
-		case 30:
-			last_password = thirty_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-			break;
-		case 31:
-			last_password = thirtyone_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-			break;
-		case 32:
-			last_password = thirtytwo_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-			break;
-		case 33:
-			last_password = thirtythree_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-			break;
-		case 34:
-			last_password = thirtyfour_combo(wifi_pass_combo, pass_count, password_file_name, last_combo);
-			break;
-		default:
-			last_password = eight_combo(wifi_pass_combo, pass_count, password_file_name, nullptr);
-			break;
+		if (last_password_check(wifi_pass_combo, last_password) < length) {
+			last_password = write_password_list(wifi_pass_combo, pass_count, password_file_name, nullptr, 8);
+			goto target;
 		}
 
-		delete[] last_combo;
+		short * last_index = new short[length];
+
+		for (short a = 0; a < length; ++a) {
+			last_index[a] = (short)wifi_pass_combo.find(last_password[a]);
+		}
+
+		last_password = write_password_list(wifi_pass_combo, pass_count, password_file_name, last_index, length);
 	}
 	else {
 		progress.close();
-		last_password = eight_combo(wifi_pass_combo, pass_count, password_file_name, nullptr);
+		last_password = write_password_list(wifi_pass_combo, pass_count, password_file_name, nullptr, 8);
 	}
+target:if (last_password == " ") {
+	remove(progress_file_name);
+}
+	   else {
 	create_progress_file(last_password, progress_file_name);
-	system("pause");
+}
+	char a{};
+	cout << "Enter a value to end program: ";
+	cin >> a;
 	return 0;
 }
