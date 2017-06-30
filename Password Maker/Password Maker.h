@@ -11,8 +11,6 @@
 
 using namespace std;
 
-bool valid_number(string &);
-bool whole_number(string &);
 long long get_user_input();
 short last_password_check(const string, string);
 void create_progress_file(string &, const char *);
