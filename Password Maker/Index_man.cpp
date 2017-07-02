@@ -7,9 +7,7 @@ index_man::index_man()
 
 index_man::index_man(short size, short max) : max_index(max)
 {
-	for (short a = 0; a < size; ++a) {
-		vector_array.push_back(0);
-	}
+	vector_array.resize(size, 0);
 }
 
 index_man::~index_man()
@@ -63,14 +61,11 @@ void index_man::operator++()
 
 void index_man::set_index_value(short size, short max)
 {
-	if (!is_empty()) vector_array.clear();
-
 	max_index = max;
 	finished = false;
 
-	for (short a = 0; a < size; ++a) {
-		vector_array.push_back(0);
-	}
+	vector_array.resize(size, 0);
+	reset();
 }
 
 void index_man::set_index_value(short size, short * posit, short max)
@@ -78,22 +73,13 @@ void index_man::set_index_value(short size, short * posit, short max)
 	max_index = max;
 	finished = false;
 
-	if (!is_empty()) vector_array.clear();
-
-	for (short a = 0; a < size; ++a) {
-		vector_array.push_back(posit[a]);
-	}
+	vector_array.resize(size, 0);
+	reset();
 }
 
 short index_man::operator[](short index_val)
 {
-	if (index_val < 0 || index_val > (vector_array.size() - 1) || is_empty()) {
-		return -1;
-	}
-	else {
-		return vector_array[index_val];
-	}
-	
+	return vector_array[index_val];
 }
 
 short index_man::size()
@@ -120,38 +106,12 @@ void index_man::reset()
 
 void index_man::resize(short new_index_value)
 {
-	short current_index_value = (short)vector_array.size();
-
-	if(new_index_value == 0){
-		return;
-	}
-	else if (new_index_value == current_index_value) {
-		return;
-	}
-	else if (new_index_value < 0) {
-		return;
-	}
-	else if (current_index_value < new_index_value) {
-		for (short a = 0; a < (new_index_value - current_index_value); ++a) {
-			vector_array.push_back(0);
-		}
-	}
-	else if (current_index_value > new_index_value) {
-		for (short a = 0; (current_index_value - new_index_value); ++a) {
-			vector_array.pop_back();
-		}
-	}
+	vector_array.resize(new_index_value);
 
 	reset();
-
 }
 
 bool index_man::is_empty()
 {
-	if (vector_array.size() == 0) {
-		return true;
-	}
-	else {
-		return false;
-	}
+	return vector_array.empty();
 }
