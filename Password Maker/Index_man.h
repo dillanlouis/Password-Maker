@@ -1,34 +1,25 @@
-#ifndef INCLUDE_IO_MAN_D
-#define INCLUDE_IO_MAN_D
+#pragma once
 
 using namespace std;
-#include <algorithm>
 #include <vector>
 
 class index_man
 {
 public:
 	
-	index_man();
-	index_man(short, short);
+	index_man(short, short, short);
 	~index_man();
+	void go_to_index(short *);
 	void operator++();
-	void set_index_value(short, short);
-	void set_index_value(short, short *, short);
 	short operator[](short);
 	short size();
-	bool is_finished();
-	void reset();
-	void resize(short);
+	bool finish();
 private:
-	vector<short> vector_array;
-	short max_index{0};
+	index_man();
+	vector<short> index_list;
+	short max_index{ 0 };
+	short min_index_list{ 0 };
+	short max_index_list{ 0 };
 	bool finished{ false };
-	bool is_empty();
-
 };
-
-
-
-#endif 
 
