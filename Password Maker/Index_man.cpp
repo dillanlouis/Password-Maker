@@ -16,12 +16,9 @@ index_man::~index_man()
 	index_list.~vector();
 }
 
-void index_man::go_to_index(short * last_index_value)
+void index_man::go_to_index(vector<short> & last_index_value)
 {
-	short size_of_list = (short)index_list.size();
-	for (short a = 0; a < size_of_list; ++a) {
-		index_list[a] = last_index_value[a];
-	}
+	index_list = last_index_value;
 }
 
 void index_man::operator++()

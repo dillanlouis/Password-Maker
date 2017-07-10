@@ -9,7 +9,7 @@ public:
 	
 	index_man(short, short, short);
 	~index_man();
-	void go_to_index(short *);
+	void go_to_index(vector<short> &);
 	void operator++();
 	short operator[](short);
 	short size();

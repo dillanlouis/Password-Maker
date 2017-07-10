@@ -1,3 +1,6 @@
+#include <limits>
+#include <sstream>
+#include <iostream>
 #include "Password_list_generator.h"
 
 
@@ -70,17 +73,46 @@ target:getline(cin, user_input);
 
 
 int main() {
-	const string wifi_pass_combo{ "01" };
 	const char * password_file_name = "password.txt";
-	const char * progress_file_name = "progress.dat";
 	long long pass_count{};
+	char answer{};
 
 	pass_count = get_user_input();
-
 	if (pass_count == 0) return 0;
 
-	start_passowrd_list(wifi_pass_combo, password_file_name, progress_file_name, pass_count);
-	
+	struct current_state current1;
+
+	cout << "1 for wifi combo: ";
+	cin >> answer;
+	if (answer == '1') {
+		current1.combo = WIFI_COMBO;
+	}
+
+	cout << "enter minimum length of password: ";
+	cin >> current1.min;
+
+	cout << "enter maximum length for password: ";
+	cin >> current1.max;
+	last_state last1;
+
+	get_last_password(current1, last1);
+
+	if (last1.exist) {
+		cout << "last password : " << last1.last_password << endl;
+		cout << "do you want to comtinue form the last password <y/n>: ";
+		cin >> answer;
+		if (answer == 'y') {
+			current1.min = last1.min;
+			start_passowrd_list(password_file_name, pass_count, current1, &last1.position);
+		}
+		else {
+			start_passowrd_list(password_file_name, pass_count, current1, nullptr);
+		}
+	}
+	else {
+		start_passowrd_list(password_file_name, pass_count, current1, nullptr);
+	}
+
 	char a{};
 	cout << "Enter a value to end program: ";
 	cin >> a;

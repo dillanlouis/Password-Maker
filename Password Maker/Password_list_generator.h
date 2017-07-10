@@ -1,18 +1,33 @@
-#ifndef INCLUDE_PASSWORD_D
-#define INCLUDE_PASSWORD_D
+#pragma once
 
-#include <iostream>
+#define WIFI_COMBO "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.$"
+#define PROGRESS_FILE "progress.dat"
+
 #include <fstream>
 #include <string>
-#include <sstream>
-#include <algorithm>
-#include <limits>
+#include <vector>
 #include "Index_man.h"
 
 using namespace std;
 
-short last_password_check(const string, string);
-void create_progress_file(string &, const char *);
-string write_password_list(const string &, long long &, const char *, short *, short, short);
-void start_passowrd_list(const string, const char *, const char *, long long);
-#endif
+
+struct current_state
+{
+	string combo{ "" };
+	short min{ 0 };
+	short max{ 0 };
+};
+
+struct last_state
+{
+	bool exist{ false };
+	string last_password{};
+	short min{};
+	vector<short> position{};
+
+};
+
+void get_last_password(current_state &, last_state &);
+void create_progress_file(string &);
+void write_password_list(const string &, long long &, const char *, index_man &);
+void start_passowrd_list(const char *, long long, current_state &, vector<short> *);
